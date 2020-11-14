@@ -1,0 +1,82 @@
+<aside class="profile-details__aside">
+  <div class="aside__item" id="mobile_fiksed">
+    <div class="aside__title">
+      Product Author
+      <div style="color: red; font-size: 15px">{{profile?.roleID.name}}</div>
+    </div>
+    <div class="author__inner">
+      <a href="#" class="author__inner-box">
+        <div class="author__avatar">
+          <img src="assets/img/content/avatar-user.jpg" alt="">
+        </div>
+        <div class="author__info">
+          <div class="author__user-name">{{profile?.userName}}</div>
+          <span class="author__link online__user">Online</span>
+        </div>
+      </a>
+      <ul class="aothor__awards-list">
+        <li>
+          <div class=" icon-meh-o list__items"></div>
+        </li>
+        <li>
+          <div class=" icon-pagelines list__items"></div>
+        </li>
+        <li>
+          <div class=" icon-bolt list__items"></div>
+        </li>
+        <li>
+          <div class=" icon-foursquare list__items"></div>
+        </li>
+        <li>
+          <div class=" icon-cny list__items"></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <ul class="foter__social-link profile-social">
+    <li><a class="link-fasebook" href="#"></a></li>
+    <li><a class="link-tvitter" href="#"></a></li>
+    <li><a class="link-youtube" href="#"></a></li>
+    <li><a class="link-liledin" href="#"></a></li>
+  </ul>
+
+  <div class="aside__item profile__deteils-btn">
+    <a class="link-message" href="#">Send Message</a>
+    <a class="link-foll" href="#">Following</a>
+    <a *ngIf="profile?.roleID._id === '5f8cef797b7a0a3f40aa3e5e'" class="link-foll" style="background: red"
+       routerLink="/admin">Admin Dashboard</a>
+  </div>
+
+  <div class="profile-details__tabs">
+    <ul class="tabs tabs__list">
+      <li class="tab active" data-id="1">
+        <div id="menu">
+          <a href="#tabs"><span class="user">About Me</span></a>
+        </div>
+      </li>
+      <li class="tab" data-id="2">
+        <div id="menu2">
+          <a href="#tabs"><span class="suitcase">Products (10)</span></a>
+        </div>
+      </li>
+      <li class="tab " data-id="3">
+        <div id="menu3">
+          <a href="#tabs"><span class="envelope-o">Message Box</span></a>
+        </div>
+      </li>
+      <li class="tab" data-id="4">
+        <div id="menu4">
+          <a href="#tabs"><span class="comments-o">Customer Reviews (20)</span></a>
+        </div>
+      </li>
+      <li class="tab " data-id="5">
+        <div id="menu5">
+          <a href="#tabs"><span class="group">Followers(100)</span></a>
+        </div>
+      </li>
+
+    </ul>
+
+  </div>
+</aside>

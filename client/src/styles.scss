@@ -1,0 +1,45 @@
+@import "~materialize-css/sass/materialize";
+@import "~jquery-form-styler/dist/jquery.formstyler.theme.css";
+@import "~jquery-form-styler/dist/jquery.formstyler.css";
+@import "~@rateyo/jquery/lib/es/jquery.rateyo.css";
+@import '~slick-carousel/slick/slick.scss';
+@import "assets/scss/style";
+
+.modal__btn {
+  position: absolute;
+  background: transparent;
+  border: none;
+  width: 27px;
+  height: 16px;
+  top: -60px;
+  right: -15px;
+  cursor: pointer;
+
+  &::before {
+    content: "\f00d";
+    position: absolute;
+    font-family: "icomoon";
+    font-size: 18px;
+    color: #fff;
+    top: -3px;
+    right: 6px;
+  }
+}
+
+.box-btn {
+  position: relative;
+  display: flex;
+}
+
+
+button {
+  &:focus {
+    background: transparent;
+  }
+}
+
+
+.toast {
+  background: #76ae36;
+  color: #000
+}

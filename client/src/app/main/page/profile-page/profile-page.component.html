@@ -1,0 +1,100 @@
+<app-preloader></app-preloader>
+<app-searc-about></app-searc-about>
+<app-breadcrumbs [bred-title]="title"></app-breadcrumbs>
+<div class="profile-details">
+  <div class="container">
+    <div class="aside__btn">
+      <div class="aside__btn-text">sidebar</div>
+    </div>
+    <div class="profile-details__inner">
+      <app-aside [profile]="profile"></app-aside>
+      <div class="profile__deteils-info">
+        <div class="profile__deteils-banner">
+          <div class="banner__here" style="background-image: url({{url}})"></div>
+        </div>
+        <div class="deteils__info">
+          <div class="info__items">
+            <div class="info__items-title">Country:</div>
+            <span>England</span>
+          </div>
+          <div class="info__items fics--border">
+            <div class="info__items-title">Member Since:</div>
+            <span>December 26, 2014</span>
+          </div>
+          <div class="info__items">
+            <div class="info__items-title">Author Rating:</div>
+            <span class="reiteng-user"></span><span>(05)</span>
+          </div>
+          <div class="info__items" id="tabs" name="tabs">
+            <div class="info__items-title">Total Sales:</div>
+            <span>$ 5,030</span>
+          </div>
+        </div>
+        <div class="about__me-inner">
+          <div class="about__me tab-item active-tab" id="1">
+            <div class="about__me-title">
+              About Me
+            </div>
+            <p class="about__me-text">
+              Bimply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+              standard dummy text ever
+              since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
+              specimen book. It has
+              survived not only five centuries, but also the leap into electronic.
+            </p>
+            <div class="about__me-title">
+              Skills:
+            </div>
+            <div class="about__me-skills">
+              <div class="skills__box">
+                <div class="skills__head">
+                  <div class="skills__name">
+                    Graphic Design
+                  </div>
+                  <div class="skills__number">
+                    80%
+                  </div>
+
+                </div>
+                <div class="skills__line">
+                  <span style="background-image: url(assets/img/content/skills-line.jpg); max-width: 80%;"></span>
+                </div>
+              </div>
+              <div class="skills__box">
+                <div class="skills__head">
+                  <div class="skills__name">
+                    WordPress
+                  </div>
+                  <div class="skills__number">
+                    90%
+                  </div>
+
+                </div>
+                <div class="skills__line">
+                  <span style="background-image: url(assets/img/content/skills-line.jpg); max-width: 90%;"></span>
+                </div>
+              </div>
+              <div class="skills__box">
+                <div class="skills__head">
+                  <div class="skills__name">
+                    Joomla
+                  </div>
+                  <div class="skills__number">
+                    70%
+                  </div>
+                </div>
+                <div class="skills__line">
+                  <span style="background-image: url(assets/img/content/skills-line.jpg); max-width: 70%;"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="about__me tab-item" id="2">2</div>
+          <div class="about__me tab-item" id="3">3</div>
+          <div class="about__me tab-item" id="4">4</div>
+          <div class="about__me tab-item" id="5">5</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

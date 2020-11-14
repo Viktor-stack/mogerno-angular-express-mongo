@@ -1,0 +1,76 @@
+<app-preloader></app-preloader>
+<app-searc-about></app-searc-about>
+<app-breadcrumbs
+  [bred-title]="title"
+></app-breadcrumbs>
+
+<section class="upload">
+        <div class="container">
+          <div class="upload__inmer">
+            <form>
+              <div class="upload__inner-title">
+                Upload Your item
+              </div>
+              <div class="upload__inner-content">
+                <div class="content__line">
+                  <label>Select Categories <span>*</span></label>
+                  <select>
+                    <option>WordPress</option>
+                    <option>Joomla</option>
+                    <option>PSD</option>
+                    <option>Plugins</option>
+                    <option>Components</option>
+                  </select>
+                </div>
+                <div class="content__line">
+                  <label>Product Name <span>*</span></label>
+                  <input type="text" placeholder="Enter your product name here ...">
+                </div>
+                <div class="content__line ficx-content__line">
+                  <label>Product Description <span>*</span></label>
+                  <textarea placeholder="<h1> Type your text  here </h1>"></textarea>
+                </div>
+                <div class="content__line">
+                  <label>Upload Main File <span>*</span></label>
+                  <input class="file" type="file" data-placeholder="No File Choosen" data-browse="Choose File">
+                </div>
+                <div class="content__line">
+                  <label>Upload Screenshots <span>*</span></label>
+                  <input class="file" type="file" data-placeholder="No File Choosen" data-browse="Choose File">
+                </div>
+                <div class="content__line">
+                  <label>File Included <span>*</span></label>
+                  <select>
+                    <option>Select File Type</option>
+                    <option>Select File Type</option>
+                    <option>Select File Type</option>
+                    <option>Select File Type</option>
+                  </select>
+                </div>
+                <div class="content__line">
+                  <label>File Dimensions <span>*</span></label>
+                  <input type="text" placeholder="Enter the item  dimension's here ...">
+                </div>
+                <div class="content__line">
+                  <label>Item Tags <span>*</span></label>
+                  <input type="text" placeholder="Enter Tag Here">
+                </div>
+              </div>
+              <div class="upload__inner-title">
+                Set Your Price (US$)
+              </div>
+              <div class="upload__inner-content">
+                <div class="content__line">
+                  <label>Regular License <span>*</span></label>
+                  <input type="text" placeholder="$00.00">
+                </div>
+                <div class="content__line">
+                  <label>Extended License <span>*</span></label>
+                  <input type="text" placeholder="$00.00">
+                </div>
+                <button class="btn" type="submit">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>

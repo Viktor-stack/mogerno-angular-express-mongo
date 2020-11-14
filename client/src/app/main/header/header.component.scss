@@ -1,0 +1,64 @@
+.login__wrapper label::before {
+  position: absolute;
+  font-size: 14px;
+  font-family: "icomoon";
+  color: #fff;
+  top: 11px;
+  left: -20px;
+  z-index: 1;
+}
+
+.heaser__top {
+  z-index: 150;
+  background: #fff;
+}
+
+.btn {
+  margin-top: -2px;
+  margin-right: 10px;
+  width: 136px;
+  height: 48px;
+  border: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  color: #000;
+  cursor: pointer;
+  box-shadow: 0 2px 2px 0 rgba(118, 174, 54, 0.75);
+}
+
+.creat-acc {
+  margin-top: 19px;
+}
+
+.btn-form {
+  background-color: #fff;
+}
+
+#modals {
+  display: none;
+  background-color: #8bc34a;
+  max-width: 731px;
+  width: 100%;
+  padding: 70px 23px 100px;
+}
+
+input:not([type]):focus:not([readonly]),
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly]),
+input[type=email]:not(.browser-default):focus:not([readonly]),
+input[type=url]:not(.browser-default):focus:not([readonly]),
+input[type=time]:not(.browser-default):focus:not([readonly]),
+input[type=date]:not(.browser-default):focus:not([readonly]),
+input[type=datetime]:not(.browser-default):focus:not([readonly]),
+input[type=datetime-local]:not(.browser-default):focus:not([readonly]),
+input[type=tel]:not(.browser-default):focus:not([readonly]),
+input[type=number]:not(.browser-default):focus:not([readonly]),
+input[type=search]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+  &:focus {
+    border-bottom: #fff !important;
+    box-shadow: 0 1px 0 0 #fff;
+  }
+}

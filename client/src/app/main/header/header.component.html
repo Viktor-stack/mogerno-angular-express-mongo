@@ -1,0 +1,187 @@
+<header class="header">
+  <div class="heaser__top">
+    <div class="container">
+      <div class="header__top-inner">
+        <div class="header__logo">
+          <div class="logo__animatoon">
+            <div class="logo__dots" id="animation1"></div>
+            <div class="logo__dots color--red"></div>
+            <div class="logo__dots" id="animation2"></div>
+          </div>
+          <a routerLink="/">
+
+            <img src="/assets/img/logo2.png" alt="">
+          </a>
+        </div>
+        <div class="header__text">
+          <a href="">
+            <span>Need help?</span>
+          </a>
+          Talk to an expert:
+          <a href="tel:61383766284">
+            +61 3 8376 6284
+          </a>
+        </div>
+        <div class="header__box">
+          <div class="header__circle-box">
+            <div class="notification__box" *ngIf="auth.isAuthenticated()">
+              <a class="notification header__circle active icon-bell-o" href="#"> <span>8</span></a>
+              <div class="circle__menu notification__menu">
+                <a href="#" class="circle__item icon-bell-o icons__color">
+                  <img class="circle__images" src="/assets/img/content/message.jpg" alt="">
+                  <div class="circle__info">
+                    <div class="circle__info-thema">WordPress</div>
+                    <div class="circle__info-data">01 Decm,2016</div>
+                  </div>
+                </a>
+                <a href="#" class="circle__item icon-bell-o">
+                  <img class="circle__images" src="/assets/img/content/message.jpg" alt="">
+                  <div class="circle__info">
+                    <div class="circle__info-thema">WordPress</div>
+                    <div class="circle__info-data">01 Decm,2016</div>
+                  </div>
+                </a>
+                <a href="#" class="circle__item icon-bell-o">
+                  <img class="circle__images" src="/assets/img/content/message.jpg" alt="">
+                  <div class="circle__info">
+                    <div class="circle__info-thema">WordPress</div>
+                    <div class="circle__info-data">01 Decm,2016</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="message__box" *ngIf="auth.isAuthenticated()">
+              <a class="message header__circle active icon-envelope-o" href="#"><span>5</span></a>
+              <div class="circle__menu message__menu">
+                <a href="#" class="circle__item icon-envelope-o icons__color">
+                  <img class="circle__images" src="/assets/img/content/message.jpg" alt="">
+                  <div class="circle__info">
+                    <div class="circle__info-name">Kazi Fahim</div>
+                    <div class="circle__info-thema">WordPress</div>
+                    <div class="circle__info-data">01 Decm,2016</div>
+                  </div>
+                </a>
+                <a href="#" class="circle__item icon-envelope-o">
+                  <img class="circle__images" src="/assets/img/content/message.jpg" alt="">
+                  <div class="circle__info">
+                    <div class="circle__info-name">Kazi Fahim</div>
+                    <div class="circle__info-thema">WordPress</div>
+                    <div class="circle__info-data">01 Decm,2016</div>
+                  </div>
+                </a>
+                <a href="#" class="circle__item icon-mail-reply">
+                  <img class="circle__images" src="/assets/img/content/message.jpg" alt="">
+                  <div class="circle__info">
+                    <div class="circle__info-name">Kazi Fahim</div>
+                    <div class="circle__info-thema">WordPress</div>
+                    <div class="circle__info-data">01 Decm,2016</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="basket__box">
+              <a class="basket header__circle active icon-shopping-cart" href="#"><span>8</span></a>
+              <div class="circle__menu">
+                <a href="#" class="circle__item padding__fics-top">
+                  <img class="circle__images" src="/assets/img/content/basket-items.jpg" alt="">
+                  <div class="circle__info">
+                    <div class="circle__info-name">Grand Ballet</div>
+                    <div class="circle__info-thema">WordPress</div>
+                    <div class="circle__info-price">$59</div>
+                  </div>
+                </a>
+                <a href="#" class="circle__item padding__fics-center">
+                  <img class="circle__images" src="/assets/img/content/basket-items2.jpg" alt="">
+                  <div class="circle__info">
+                    <div class="circle__info-name">Apple Device</div>
+                    <div class="circle__info-thema">WordPress</div>
+                    <div class="circle__info-price">$59</div>
+                  </div>
+                </a>
+                <div class="basket__summ padding__fics-bottom">
+                  <div class="basket__title">
+                    <div class="basket__total">Total</div>
+                    <div class="basket__price">$118</div>
+                  </div>
+                  <a class="basket__btn" href="#">Go to Cart</a>
+                  <a class="basket__btn basket__btn-checkout" href="#">Go to Checkout</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <app-user *ngIf="auth.isAuthenticated()"></app-user>
+          <a *ngIf="!auth.isAuthenticated()" class="header__btn header__btn-Login" (click)="openModal()">Login</a>
+          <a *ngIf="!auth.isAuthenticated()" class="header__btn header__btn-Register header__btn-Login--on"
+             (click)="openModal()">Register</a>
+          <a *ngIf="auth.isAuthenticated()" (click)="logout($event)" href="#"
+             class="header__btn header__btn-Logout header__btn-Login--on">Logout</a>
+        </div>
+        <div class="header__btn-menu icon-user"></div>
+      </div>
+    </div>
+  </div>
+  <app-header-menu></app-header-menu>
+</header>
+
+<div #modal id="modal" class="modal">
+  <div class="box-btn">
+    <button class="modal__btn" (click)="closeModal()"></button>
+  </div>
+  <div class="login__wrapper">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="login__title">
+        login
+      </div>
+      <div class="form-control"
+           [ngClass]="{invalid: form.get('email').touched && form.get('email').invalid}"
+      >
+        <label class="login-name">
+          <input id="email" formControlName="email" type="text" placeholder="Login">
+        </label>
+        <span class="halper-text red-text"
+              *ngIf="form.get('email').invalid && form.get('email').touched"
+        >
+        <span *ngIf="form.get('email').errors['required']">Email не должен быть пустым</span>
+        <span *ngIf="form.get('email').errors['email']">Ведите корректный Email</span>
+      </span>
+      </div>
+      <div class="form-control"
+           [ngClass]="{invalid: form.get('password').touched && form.get('password').invalid}"
+      >
+        <label class="login-pass">
+          <input id="password" formControlName="password" type="password" placeholder="Password">
+        </label>
+        <span class="halper-text red-text"
+              *ngIf="form.get('password').invalid && form.get('password').touched"
+        >
+        <span *ngIf="form.get('password').errors['required']">Пароль не должен быть пустым</span>
+        <span
+          *ngIf="form.get('password').errors['minlength'] && form.get('password').errors['minlength']['requiredLength']">
+          Пароль должен быть больше {{form.get('password').errors['minlength']['requiredLength']}} символов.
+          Сейчас {{form.get('password').errors['minlength']['actualLength']}}
+        </span>
+      </span>
+      </div>
+      <div class="mabile__fics">
+        <button
+          class="btn btn-form waves-effect"
+          type="submit" (click)="submit()"
+          [disabled]="form.invalid || submitted"
+        >
+          Войти
+        </button>
+        <a class="creat-acc" href="#">Creat An Account?</a>
+        <a class="lost-pass" href="#">Lost Password?</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div #modals id="modals" class="modal">
+  <div class="login__wrapper">
+    <h6 style="text-align: center">Сессия закончилась войдите заново</h6>
+    <a class="header__btn header__btn-Login" (click)="openModal()">Login</a>
+    <a class="creat-acc" href="#">Вернуться на главную</a>
+  </div>
+</div>
+

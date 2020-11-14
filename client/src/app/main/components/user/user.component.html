@@ -1,0 +1,33 @@
+<div class="user__box-inner" *ngIf="userProfile$ | async as profileUsers">
+  <a class="user" [routerLink]="['/profile', profileUsers._id]">
+    <div class="user__box">
+      <div class="user__box-images">
+        <img src="/assets/img/content/user-login.jpg" alt="">
+      </div>
+      <div class="user__box-items">
+        <div class="user__name">
+          {{profileUsers.userName}}
+        </div>
+        <div class="user__price" style="color: #ff0000; font-size: 12px; line-height: 1" *ngIf="profileUsers.roleID._id === '5f8cef797b7a0a3f40aa3e5e'">
+          {{profileUsers.roleID.name}}
+        </div>
+        <div class="user__price">
+          ${{profileUsers.userPrise}}
+        </div>
+      </div>
+    </div>
+  </a>
+
+  <div class="user__menu">
+    <ul class="user__list">
+      <li><a [routerLink]="['/profile', profileUsers._id]">Profile Page</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Account Setting</a></li>
+      <li><a href="#">Downloads</a></li>
+      <li><a href="#">Wishlist</a></li>
+      <li><a routerLink="/upload">Upload Item</a></li>
+      <li><a href="#">Statement</a></li>
+      <li><a routerLink="/withdrawals">Withdraws</a></li>
+    </ul>
+  </div>
+</div>

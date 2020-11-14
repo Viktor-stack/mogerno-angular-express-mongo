@@ -1,0 +1,27 @@
+<app-preloader></app-preloader>
+<div class="row">
+  <div class="col s9 m9">
+    <div class="card blue-grey darken-1">
+      <div class="card-content white-text">
+        <span class="card-title">{{user?.userName}}</span>
+        <p>{{user?.email}}</p>
+        <p><small>Текущая роль пользователя:</small> {{user?.roleID.name}}</p>
+      </div>
+      <div class="card-action white">
+        <h6>Изменить роль</h6>
+        <form>
+          <div class="">
+            <select #select class=""
+                    [(ngModel)]="ngModel" #role="ngModel" [ngModelOptions]="{standalone: true}">
+              <option value="" disabled selected>Выберите роль пользователь</option>
+              <option *ngFor="let comp of RoleList" [value]="comp._id">
+                {{comp.name}}
+              </option>
+            </select>
+            <button class="btn" type="submit" (click)="submit()">Обновить</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

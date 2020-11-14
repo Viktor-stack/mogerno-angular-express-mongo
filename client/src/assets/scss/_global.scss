@@ -1,0 +1,173 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: $text;
+  cursor: pointer;
+}
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body {
+  @include f400;
+  font-size: 15px;
+  line-height: 24px;
+  color: $text;
+  overflow: auto;
+}
+#preloader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  z-index: 50;
+  transition: all .5s;
+  opacity: 1;
+  visibility: visible;
+
+  &.done {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+#preloader div.out {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -30px 0 0 -30px;
+  border: 6px solid #fff;
+  border-top-color: $green;
+  border-radius: 99px;
+  animation: spin 1s linear 0s infinite;
+}
+#preloader div.in {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -20px 0 0 -20px;
+  border: 6px solid #fff;
+  border-top-color: $bg;
+  border-radius: 99px;
+  animation: spinr 1s linear 0s infinite;
+}
+// .fixed{
+//   position: fixed;
+//   top: 0px;
+// }
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  position: relative;
+  overflow-x: hidden;
+}
+.content {
+  flex: 1 0 auto;
+}
+.footer {
+  flex: 0 0 auto;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+.container-fluid {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+@media (max-width: 720px) {
+  .container__fluid {
+    padding: 0 15px;
+  }
+}
+.page-content {
+  background-color: $bg-products;
+}
+.title {
+  margin-bottom: 30px;
+  text-align: center;
+  color: $bg;
+  @include f700;
+  font-size: 36px;
+  line-height: 60px;
+}
+.breadcrumbs {
+  &__inner {
+    padding: 45px 0px 40px;
+    overflow: hidden;
+    width: 1200px;
+  }
+  &__list {
+    li {
+      display: inline-block;
+      position: relative;
+      & + li {
+        padding-left: 24px;
+        &::before {
+          content: "-";
+          position: absolute;
+          left: 8px;
+          color: $green;
+        }
+      }
+      &:last-child {
+        a,
+        span {
+          font-size: 15px;
+          @include f600;
+          color: $bg;
+        }
+      }
+    }
+    a {
+      color: #b0bec5;
+    }
+  }
+}
+.aside__btn{
+  @include f500;
+  font-size: 25px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  margin-bottom: 20px;
+      box-shadow: 0px 4px 17px 9px rgba(69,90,100,0.75);
+  display: none;
+  .aside__btn-text{
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    // transform: rotate(90deg);
+  }
+  width: 100%;
+
+  background-color: $bg;
+  &.active{
+    .aside__btn-text{
+      color: $bg;
+    }
+    background-color: $green;
+  }
+}
