@@ -1,0 +1,22 @@
+.dn {
+  display: none;
+}
+
+.btn {
+  &.btn-file {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.h200 {
+  height: 200px;
+}
+
+.error-message {
+  color: red;
+}
+
+input.ng-touched.ng-invalid {
+  border-bottom: 1px solid red;
+}

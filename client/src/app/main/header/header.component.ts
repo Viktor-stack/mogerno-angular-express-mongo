@@ -1,10 +1,10 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core'
-import { MaterialInstance, MaterialService } from '../shared/classes/material.service'
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core'
+import {MaterialInstance, MaterialService} from '../shared/classes/material.service'
 import $ from 'jquery/dist/jquery.js'
-import { FormControl, FormGroup, Validators } from '@angular/forms'
-import { AuthService } from '../shared/services/auth.service'
-import { ActivatedRoute, Params, Router } from '@angular/router'
-import { ProfileUser } from '../shared/interface'
+import {FormControl, FormGroup, Validators} from '@angular/forms'
+import {AuthService} from '../shared/services/auth.service'
+import {ActivatedRoute, Params, Router} from '@angular/router'
+import {ProfileUser} from '../shared/interface'
 
 @Component({
   selector: 'app-header',
@@ -122,13 +122,26 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     this.form.reset()
     this.modal.close()
     this.modals.close()
+    debugger
+    setTimeout(() => {
+      this.auth.updateTokenLogin().subscribe()
+    }, 1000)
   }
 
   logout($event: Event) {
     $event.preventDefault()
     this.auth.logout()
+    this.form.reset()
+    setTimeout(() => {
+      this.auth.updateTokenLogout().subscribe()
+    }, 1000)
     this.router.navigate(['/'])
   }
 
 
+  closeModalRegister() {
+    this.modal.close()
+    this.form.reset()
+    this.router.navigate(['/register'])
+  }
 }

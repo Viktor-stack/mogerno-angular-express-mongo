@@ -1,0 +1,16 @@
+.offline__user {
+  display: block;
+  text-align: center;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: "";
+    width: 9px;
+    height: 9px;
+    background-color: #7a7a7a;
+    border-radius: 50%;
+    left: 11px;
+    top: 8px;
+  }
+}

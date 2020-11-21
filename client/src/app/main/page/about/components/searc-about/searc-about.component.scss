@@ -1,0 +1,28 @@
+input[type=text]:not(.browser-default) {
+  background-color: #fff;
+  display: block;
+  width: 100%;
+  box-shadow: 0 1px 10px 0 rgba(124, 178, 64, 0.75);
+  border-radius: 4px;
+  height: 56px;
+  border: none;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif !important;
+  font-weight: 500 !important;
+  padding-left: 25px;
+}
+
+.search__inner-form button {
+  position: absolute;
+  border: none;
+  background-color: transparent;
+  right: -25px;
+  top: 0;
+  padding: 17px;
+  cursor: pointer;
+}
+
+input[type=text]:not(.browser-default):focus:not([readonly]) {
+  border-bottom: none;
+  box-shadow: 0 1px 10px 0 rgba(124, 178, 64, 0.75);
+}

@@ -72,4 +72,18 @@ module.exports.register = async function (req, res) {
     }
 }
 
-
+module.exports.updateToken = async (req, res) => {
+    try {
+        debugger
+        const user = await User.findByIdAndUpdate(
+            {_id: req.params.id},
+            {$set: req.body},
+            {new: true}
+        )
+            .select('_id userName email token')
+            .populate('roleID')
+        res.status(200).json(user)
+    } catch (e) {
+        errorHandler(res.e)
+    }
+}

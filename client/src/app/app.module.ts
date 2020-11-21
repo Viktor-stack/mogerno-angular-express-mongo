@@ -31,7 +31,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { AuthInterceptor } from './main/shared/services/auth.interceptor'
 import { AuthService } from './main/shared/services/auth.service'
 import { CommonModule } from '@angular/common'
-import { AsideComponent } from './main/components/aside/aside.component'
+import { AsideComponent } from './main/components/aside/aside.component';
+import { RegisterPageComponent } from './main/page/register-page/register-page.component'
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -66,7 +67,8 @@ const INTERCEPTOR_PROVIDER: Provider = {
     MainLayoutComponent,
     ProfilePageComponent,
     WithdrawalsPageComponent,
-    AsideComponent
+    AsideComponent,
+    RegisterPageComponent
   ],
   imports: [
     CommonModule,

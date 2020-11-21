@@ -1,8 +1,13 @@
-import { Injectable } from '@angular/core'
-import { HttpClient } from '@angular/common/http'
-import { Observable } from 'rxjs'
-import { User } from '../interface'
-import { tap } from 'rxjs/operators'
+import {Injectable} from '@angular/core'
+import {HttpClient} from '@angular/common/http'
+import {Observable} from 'rxjs'
+import {User} from '../interface'
+import {tap} from 'rxjs/operators'
+
+interface Token {
+  token: string
+}
+
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +33,20 @@ export class AuthService {
           }
         )
       )
+
+  }
+
+  updateTokenLogin(): Observable<Token> {
+    debugger
+    return this.http.patch<Token>(`/api/auth/update/${this.userID}`, {
+      token: this.token
+    })
+  }
+
+  updateTokenLogout(): Observable<Token> {
+    return this.http.patch<Token>(`/api/auth/update/${this.userID}`, {
+      token: ''
+    })
   }
 
   isAuthenticated(): boolean {

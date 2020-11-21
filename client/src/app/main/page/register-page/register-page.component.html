@@ -1,0 +1,99 @@
+<app-preloader></app-preloader>
+<app-searc-about></app-searc-about>
+<app-breadcrumbs [bred-title]="title"></app-breadcrumbs>
+<section class="upload">
+  <div class="container">
+    <div class="upload__inmer">
+      <form (ngSubmit)="ngSubmit()" [formGroup]="form">
+        <div class="upload__inner-title">
+          Register
+        </div>
+        <div class="upload__inner-content">
+          <div class="content__line">
+            <label>Email <span>*</span></label>
+            <input formControlName="email" type="email" placeholder="Email">
+          </div>
+          <div class="error-messages">
+            <ng-container *ngFor="let error of error_messages.password">
+              <div class="error-message"
+                   *ngIf="form.get('email').hasError(error.type) && (form.get('email').dirty || form.get('email').touched)">
+                {{ error.message }}
+              </div>
+            </ng-container>
+          </div>
+          <div class="content__line">
+            <label>Password <span>*</span></label>
+            <input
+              formControlName="password"
+              type="password"
+              placeholder="Password"
+            >
+          </div>
+          <div class="error-messages">
+            <ng-container *ngFor="let error of error_messages.password">
+              <div class="error-message"
+                   *ngIf="form.get('password').hasError(error.type) && (form.get('password').dirty || form.get('password').touched)">
+                {{ error.message }}
+              </div>
+            </ng-container>
+          </div>
+          <div class="content__line">
+            <label>Password confirm <span>*</span></label>
+            <input
+              formControlName="confirmPassword"
+              type="password"
+              placeholder="Password confirm"
+            >
+          </div>
+          <div class="error-messages">
+            <ng-container *ngFor="let error of error_messages.password">
+              <div class="error-message"
+                   *ngIf="form.get('confirmPassword').hasError(error?.type) && (form.get('confirmPassword').dirty || form.get('confirmPassword').touched)">
+                {{ error.message }}
+              </div>
+            </ng-container>
+          </div>
+          <div class="error-messages" *ngIf="form.errors !== null">
+            <div class="error-message">
+              {{form.errors?.message}}
+            </div>
+          </div>
+          <div class="content__line">
+            <label>User Name <span>*</span></label>
+            <input formControlName="userName" type="text" placeholder="Name">
+          </div>
+          <div class="error-messages">
+            <ng-container *ngFor="let error of error_messages.password">
+              <div class="error-message"
+                   *ngIf="form.get('userName').hasError(error?.type) && (form.get('userName').dirty || form.get('userName').touched)">
+                {{ error.message }}
+              </div>
+            </ng-container>
+          </div>
+          <div class="content__line">
+            <label>Add Avatar Image <span>*</span></label>
+            <img
+              [src]="imagePreview"
+              class="h200" alt=""
+              *ngIf="imagePreview"
+            >
+            <input
+              type="file"
+              class="dn"
+              (change)="onFileUpload($event)"
+              #fileInput
+            >
+            <button (click)="trigger()" class="btn btn-file">Add Image</button>
+          </div>
+          <button
+            class="btn"
+            type="submit"
+            [disabled]="form.invalid"
+          >Submit
+          </button>
+<!--          <pre>{{form.errors | json}}</pre>-->
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

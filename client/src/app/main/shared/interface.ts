@@ -9,6 +9,7 @@ export interface ProfileUser {
   createDate?: number
   userPrise?: number
   email?: string
+  token: string
   roleID: RoleName
 }
 

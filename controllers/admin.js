@@ -26,7 +26,7 @@ module.exports.getByIDUsers = async (req, res) => {
 
 module.exports.update = async (req, res) => {
     try {
-        const user = await User.findByIdAndUpdate(
+            const user = await User.findByIdAndUpdate(
             {_id: req.params.id},
             {$set: req.body},
             {new: true}

@@ -1,9 +1,9 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core'
-import { MaterialService } from '../../../main/shared/classes/material.service'
-import { Users } from '../../services/interface'
-import { AdminService } from '../../services/admin.service'
-import { Observable } from 'rxjs'
-import { ProfileUser } from '../../../main/shared/interface'
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core'
+import {MaterialService} from '../../../main/shared/classes/material.service'
+import {Users} from '../../services/interface'
+import {AdminService} from '../../services/admin.service'
+import {Observable} from 'rxjs'
+import {ProfileUser} from '../../../main/shared/interface'
 
 
 @Component({

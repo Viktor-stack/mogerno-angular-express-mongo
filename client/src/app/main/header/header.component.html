@@ -111,8 +111,12 @@
           </div>
           <app-user *ngIf="auth.isAuthenticated()"></app-user>
           <a *ngIf="!auth.isAuthenticated()" class="header__btn header__btn-Login" (click)="openModal()">Login</a>
-          <a *ngIf="!auth.isAuthenticated()" class="header__btn header__btn-Register header__btn-Login--on"
-             (click)="openModal()">Register</a>
+          <a
+            *ngIf="!auth.isAuthenticated()"
+            class="header__btn header__btn-Register header__btn-Login--on"
+            routerLink="/register"
+          >
+            Register</a>
           <a *ngIf="auth.isAuthenticated()" (click)="logout($event)" href="#"
              class="header__btn header__btn-Logout header__btn-Login--on">Logout</a>
         </div>
@@ -170,7 +174,7 @@
         >
           Войти
         </button>
-        <a class="creat-acc" href="#">Creat An Account?</a>
+        <a class="creat-acc" (click)="closeModalRegister()">Creat An Account?</a>
         <a class="lost-pass" href="#">Lost Password?</a>
       </div>
     </form>

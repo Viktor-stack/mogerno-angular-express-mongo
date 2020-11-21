@@ -11,7 +11,12 @@
         </div>
         <div class="author__info">
           <div class="author__user-name">{{profile?.userName}}</div>
-          <span class="author__link online__user">Online</span>
+          <span
+            *ngIf="!profile?.token; else offline"
+            class="author__link online__user">Online</span>
+          <ng-template #offline>
+            <span class="author__link offline__user">Offline</span>
+          </ng-template>
         </div>
       </a>
       <ul class="aothor__awards-list">

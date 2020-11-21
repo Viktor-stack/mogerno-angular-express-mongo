@@ -19,6 +19,10 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
+    token: {
+        type: String,
+        default: ''
+    },
     userPrise: {
         type: Number,
         default: 0
