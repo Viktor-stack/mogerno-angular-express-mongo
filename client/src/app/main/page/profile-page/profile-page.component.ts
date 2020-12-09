@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core'
+import {Component, OnInit} from '@angular/core'
 import $ from 'jquery/dist/jquery.js'
-import { ProfileService } from '../../shared/services/profile.service'
-import { ActivatedRoute, Params } from '@angular/router'
-import { of } from 'rxjs'
-import { switchMap } from 'rxjs/operators'
-import { ProfileUser, RoleName } from '../../shared/interface'
+import {ProfileService} from '../../shared/services/profile.service'
+import {ActivatedRoute, Params} from '@angular/router'
+import {of} from 'rxjs'
+import {switchMap} from 'rxjs/operators'
+import {ProfileUser, RoleName} from '../../shared/interface'
 
 @Component({
   selector: 'app-profile-page',

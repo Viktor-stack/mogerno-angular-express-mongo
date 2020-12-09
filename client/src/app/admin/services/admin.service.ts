@@ -25,7 +25,7 @@ export class AdminService {
   }
 
   getRolesList(): Observable<RoleName[]> {
-    return this.http.get<RoleName[]>('/api/role/rolesList')
+    return this.http.get<RoleName[]>('/api/admin/rolesList')
   }
 
   updateRole(userID: string, role: object): Observable<Role> {

@@ -2,17 +2,18 @@
   <a class="user" [routerLink]="['/profile', profileUsers._id]">
     <div class="user__box">
       <div class="user__box-images">
-        <img src="/assets/img/content/user-login.jpg" alt="">
+        <img src="/api/{{profileUsers.avatarName}}" alt="">
       </div>
       <div class="user__box-items">
         <div class="user__name">
           {{profileUsers.userName}}
         </div>
-        <div class="user__price" style="color: #ff0000; font-size: 12px; line-height: 1" *ngIf="profileUsers.roleID._id === '5f8cef797b7a0a3f40aa3e5e'">
-          {{profileUsers.roleID.name}}
-        </div>
+<!--        <div class="user__price" style="color: #ff0000; font-size: 12px; line-height: 1"-->
+<!--             *ngIf="profileUsers.roleID._id === '0d2a4b9e-38ab-4a32-b741-51fc68947035'">-->
+<!--          {{profileUsers.roleID.roleName}}-->
+<!--        </div>-->
         <div class="user__price">
-          ${{profileUsers.userPrise}}
+          ${{profileUsers.userPrice}}
         </div>
       </div>
     </div>

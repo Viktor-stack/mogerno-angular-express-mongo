@@ -5,7 +5,7 @@
       <div class="card-content white-text">
         <span class="card-title">{{user?.userName}}</span>
         <p>{{user?.email}}</p>
-        <p><small>Текущая роль пользователя:</small> {{user?.roleID.name}}</p>
+        <p><small>Текущая роль пользователя:</small> {{user?.roleID.roleName}}</p>
       </div>
       <div class="card-action white">
         <h6>Изменить роль</h6>
@@ -15,7 +15,7 @@
                     [(ngModel)]="ngModel" #role="ngModel" [ngModelOptions]="{standalone: true}">
               <option value="" disabled selected>Выберите роль пользователь</option>
               <option *ngFor="let comp of RoleList" [value]="comp._id">
-                {{comp.name}}
+                {{comp.roleName}}
               </option>
             </select>
             <button class="btn" type="submit" (click)="submit()">Обновить</button>

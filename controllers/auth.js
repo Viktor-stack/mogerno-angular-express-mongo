@@ -42,7 +42,7 @@ module.exports.login = async function (req, res) {
 
 module.exports.register = async function (req, res) {
     const candidate = await User.findOne({email: req.body.email})
-
+    debugger
     if (candidate) {
         res.status(409).json({
             message: 'Такой Email уже занят!'
@@ -54,7 +54,7 @@ module.exports.register = async function (req, res) {
         const user = new User({
             email: req.body.email,
             userName: req.body.userName,
-            avatarSrc: req.body.avatarSrc,
+            avatarSrc: req.file ? req.file.path : '',
             password: bcrypt.hashSync(password, salt),
             roleID: '5f8e39e459081822bc1eeb51'
         })

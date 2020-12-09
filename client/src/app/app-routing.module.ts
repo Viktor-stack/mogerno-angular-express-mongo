@@ -19,7 +19,7 @@ const routes: Routes = [
       {path: 'register', component: RegisterPageComponent},
       {path: 'contact', component: ContactsPageComponent},
       {path: 'upload', component: UploadComponent, canActivate: [AuthGuard]},
-      {path: 'profile/:id', component: ProfilePageComponent, canActivate: [AuthGuard]},
+      {path: 'profile/:id', component: ProfilePageComponent},
       {path: 'withdrawals', component: WithdrawalsPageComponent, canActivate: [AuthGuard]},
       {path: '404', component: NotFoundComponent}
     ]

@@ -4,8 +4,8 @@
     <div class="collapsible-body">
       <ul>
         <li>ID: {{user._id}}</li>
-        <li>Price: {{user.userPrise}}</li>
-        <li>Role Name: {{user.roleID.name}}</li>
+        <li>Price: {{user.userPrice}}</li>
+        <li>Role Name: {{user.roleID.roleName}}</li>
         <li>Create Date: {{user.createDate | date: 'dd.MM.yyyy'}}</li>
         <li>
           <button class="btn" [routerLink]="['/admin/user', user._id]">Открыть пользователя</button>

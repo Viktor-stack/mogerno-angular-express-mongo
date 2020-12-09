@@ -4,6 +4,6 @@ export interface Users {
   _id?: string
   userName?: string
   createDate?: number
-  userPrise?: number
+  userPrice?: number
   roleID: RoleName
 }

@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core'
 import {HttpClient} from '@angular/common/http'
 import {Observable} from 'rxjs'
-import {User} from '../interface'
+import {ProfileUser, RegisterUser, RoleName, User} from '../interface'
 import {tap} from 'rxjs/operators'
 
 interface Token {
@@ -13,20 +13,22 @@ interface Token {
   providedIn: 'root'
 })
 export class AuthService {
-  private token = null
+  public token = null
   private userID: string
 
   constructor(private http: HttpClient) {
   }
 
 
-  login(user: User): Observable<{ token: string, roleID: string, userID: string, userName: string }> {
-    return this.http.post<{ token: string, roleID: string, userID: string, userName: string }>('/api/auth/login', user)
+  login(user: User): Observable<{ token: string, roleID: RoleName, userID: string, userName: string }> {
+    debugger
+    return this.http.post<{ token: string, roleID: RoleName, userID: string, userName: string }>('/api/auth/login', user)
       .pipe(
         tap(
           ({token, roleID, userID}) => {
+            debugger
             localStorage.setItem('auth-token', token)
-            localStorage.setItem('roleID', roleID)
+            localStorage.setItem('roleID', roleID._id)
             localStorage.setItem('userID', userID)
             this.setToken(token)
             this.setUserID(userID)
@@ -36,8 +38,20 @@ export class AuthService {
 
   }
 
-  updateTokenLogin(): Observable<Token> {
+  register(user: RegisterUser, image?: File): Observable<Object> {
+    const fd = new FormData()
+    if (image) {
+      fd.append('avatarName', image, image.name)
+      fd.append('userName', user.userName)
+      fd.append('password', user.password)
+      fd.append('email', user.email)
+    }
     debugger
+    return this.http.post('/api/auth/register', fd)
+  }
+
+
+  updateTokenLogin(): Observable<Token> {
     return this.http.patch<Token>(`/api/auth/update/${this.userID}`, {
       token: this.token
     })
@@ -45,7 +59,7 @@ export class AuthService {
 
   updateTokenLogout(): Observable<Token> {
     return this.http.patch<Token>(`/api/auth/update/${this.userID}`, {
-      token: ''
+      token: null
     })
   }
 

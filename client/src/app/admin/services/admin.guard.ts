@@ -13,7 +13,7 @@ export class AdminGuard implements CanActivate, CanActivateChild {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if (this.profileService.getRoleID() === '5f8cef797b7a0a3f40aa3e5e') {
+    if (this.profileService.getRoleID() === '0d2a4b9e-38ab-4a32-b741-51fc68947035') {
       return of(true)
     } else {
       this.router.navigate(['/404'], {

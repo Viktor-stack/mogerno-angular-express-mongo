@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core'
-import { AuthService } from './main/shared/services/auth.service'
-import { ProfileService } from './main/shared/services/profile.service'
-import { ActivatedRoute, Params, Router } from '@angular/router'
-import { MaterialService } from './main/shared/classes/material.service'
+import {Component, OnInit} from '@angular/core'
+import {AuthService} from './main/shared/services/auth.service'
+import {ProfileService} from './main/shared/services/profile.service'
+import {ActivatedRoute, Params, Router} from '@angular/router'
+import {MaterialService} from './main/shared/classes/material.service'
 
 @Component({
   selector: 'app-root',
   template: '<router-outlet></router-outlet>'
 })
 export class AppComponent implements OnInit {
+
   constructor(private auth: AuthService,
               private profile: ProfileService,
               private route: ActivatedRoute,

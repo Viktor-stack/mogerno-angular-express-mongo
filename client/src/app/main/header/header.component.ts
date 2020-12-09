@@ -136,6 +136,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
       this.auth.updateTokenLogout().subscribe()
     }, 1000)
     this.router.navigate(['/'])
+    this.modals.close()
   }
 
 

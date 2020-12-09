@@ -2,17 +2,17 @@
   <div class="aside__item" id="mobile_fiksed">
     <div class="aside__title">
       Product Author
-      <div style="color: red; font-size: 15px">{{profile?.roleID.name}}</div>
+      <div style="color: red; font-size: 15px">{{profile?.roleID.roleName}}</div>
     </div>
     <div class="author__inner">
       <a href="#" class="author__inner-box">
         <div class="author__avatar">
-          <img src="assets/img/content/avatar-user.jpg" alt="">
+          <img src="/api/{{profile?.avatarName}}" alt="">
         </div>
         <div class="author__info">
           <div class="author__user-name">{{profile?.userName}}</div>
           <span
-            *ngIf="!profile?.token; else offline"
+            *ngIf="profile?.token; else offline"
             class="author__link online__user">Online</span>
           <ng-template #offline>
             <span class="author__link offline__user">Offline</span>
@@ -49,7 +49,7 @@
   <div class="aside__item profile__deteils-btn">
     <a class="link-message" href="#">Send Message</a>
     <a class="link-foll" href="#">Following</a>
-    <a *ngIf="profile?.roleID._id === '5f8cef797b7a0a3f40aa3e5e'" class="link-foll" style="background: red"
+    <a *ngIf="profile?.roleID._id === '0d2a4b9e-38ab-4a32-b741-51fc68947035'" class="link-foll" style="background: red"
        routerLink="/admin">Admin Dashboard</a>
   </div>
 

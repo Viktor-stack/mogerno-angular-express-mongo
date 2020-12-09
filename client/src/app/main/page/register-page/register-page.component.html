@@ -83,7 +83,7 @@
               (change)="onFileUpload($event)"
               #fileInput
             >
-            <button (click)="trigger()" class="btn btn-file">Add Image</button>
+            <button type="button" (click)="trigger()" class="btn btn-file" [disabled]="form.invalid">Add Image</button>
           </div>
           <button
             class="btn"
@@ -91,7 +91,7 @@
             [disabled]="form.invalid"
           >Submit
           </button>
-<!--          <pre>{{form.errors | json}}</pre>-->
+          <!--          <pre>{{form.errors | json}}</pre>-->
         </div>
       </form>
     </div>

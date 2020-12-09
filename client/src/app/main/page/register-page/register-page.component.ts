@@ -1,5 +1,9 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, ValidationErrors, Validators} from "@angular/forms";
+import {AuthService} from "../../shared/services/auth.service";
+import {RegisterUser} from "../../shared/interface";
+import {MaterialService} from "../../shared/classes/material.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register-page',
@@ -10,9 +14,10 @@ export class RegisterPageComponent implements OnInit {
   @ViewChild('fileInput') fileInputRef: ElementRef
   title = 'Register'
   image: File
+  isNew = true
   imagePreview: string | ArrayBuffer = ''
   form: FormGroup
-  invalidPassword: boolean
+  userReg: RegisterUser
 
   error_messages = {
     'userName': [
@@ -34,7 +39,9 @@ export class RegisterPageComponent implements OnInit {
   }
 
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+              private authService: AuthService,
+              private route: Router) {
   }
 
   ngOnInit(): void {
@@ -72,10 +79,6 @@ export class RegisterPageComponent implements OnInit {
     this.fileInputRef.nativeElement.click()
   }
 
-  ngSubmit() {
-
-  }
-
   onFileUpload(event: any) {
     const file = event.target.files[0]
     this.image = file
@@ -85,4 +88,18 @@ export class RegisterPageComponent implements OnInit {
     }
     render.readAsDataURL(file)
   }
+
+  ngSubmit() {
+    let obs$
+    this.form.disable()
+    obs$ = this.authService.register(this.form.value, this.image)
+    obs$.subscribe((res) => {
+      this.userReg = res
+      MaterialService.totals(this.userReg.message)
+      this.form.reset()
+      this.route.navigate(['/'])
+    })
+  }
+
+
 }
