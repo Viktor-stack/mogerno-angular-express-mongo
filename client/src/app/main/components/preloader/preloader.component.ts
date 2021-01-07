@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, Output, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-preloader',
@@ -6,16 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./preloader.component.scss']
 })
 export class PreloaderComponent implements OnInit {
+  done: string
 
-  constructor() { }
+  @ViewChild('preloader') el: ElementRef
+  @Output('el') edlin: ElementRef
+
+  constructor() {
+  }
 
   ngOnInit(): void {
-    setTimeout(function() {
-    const preloader = document.getElementById("preloader");
-    if (!preloader.classList.contains("done")) {
-      preloader.classList.add("done");
-    }
-  }, 1000);
+
   }
 
 }

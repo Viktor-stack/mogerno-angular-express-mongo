@@ -3,7 +3,8 @@ import {ProfileUser, RoleName} from '../../shared/interface'
 import {ProfileService} from "../../shared/services/profile.service";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {switchMap} from "rxjs/operators";
-import {of, Subscription} from "rxjs";
+import {of} from "rxjs";
+import {LoaderService} from "../../shared/services/loader.service";
 
 
 @Component({
@@ -16,10 +17,13 @@ export class AsideComponent implements OnInit, OnDestroy {
   roleID: RoleName
   image: string
   private aSub
+  isLoading = true;
 
 
   constructor(private profileService: ProfileService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              public load: LoaderService) {
+    this.load.showLoader()
   }
 
   ngOnInit(): void {
@@ -35,14 +39,24 @@ export class AsideComponent implements OnInit, OnDestroy {
             }
           )
         ).subscribe(res => {
-        return this.profile = res
+        this.profile = res
       })
     }, 2000)
-
-
-    // let str = this.profile.avatarName.split('\\')
-    // this.image
-
+    setTimeout(() => {
+      if (this.profile == undefined) {
+        return
+      } else {
+        setTimeout(() => {
+          const preloader = document.getElementById("loader");
+          if (!preloader.classList.contains("done")) {
+            preloader.classList.add("done");
+          }
+          setTimeout(() => {
+            this.isLoading = false
+          }, 1000);
+        }, 500)
+      }
+    }, 2000)
   }
 
   ngOnDestroy(): void {

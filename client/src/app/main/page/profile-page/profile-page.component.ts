@@ -5,6 +5,7 @@ import {ActivatedRoute, Params} from '@angular/router'
 import {of} from 'rxjs'
 import {switchMap} from 'rxjs/operators'
 import {ProfileUser, RoleName} from '../../shared/interface'
+import {LoaderService} from "../../shared/services/loader.service";
 
 @Component({
   selector: 'app-profile-page',
@@ -18,7 +19,9 @@ export class ProfilePageComponent implements OnInit {
   url = 'assets/img/content/banner-here.jpg'
 
   constructor(private profileService: ProfileService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              public load: LoaderService) {
+    this.load.showLoader()
   }
 
   ngOnInit(): void {
@@ -26,6 +29,7 @@ export class ProfilePageComponent implements OnInit {
       .pipe(
         switchMap(
           (params: Params) => {
+
             if (params['id']) {
               return this.profileService.getProfile(params['id'])
             }
@@ -33,7 +37,8 @@ export class ProfilePageComponent implements OnInit {
           }
         )
       ).subscribe(res => {
-      return this.profile = res
+      this.profile = res
+      this.load.hideLoader()
     })
 
     $('.profile-details__inner .tab').on('click', function (event) {
@@ -59,6 +64,7 @@ export class ProfilePageComponent implements OnInit {
     $('.aside__btn').on('click', function () {
       $('.profile-details__aside, .aside__btn').toggleClass('active')
     })
+
   }
 
 }

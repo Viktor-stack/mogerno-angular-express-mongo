@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core'
-import { HttpClient } from '@angular/common/http'
-import { Users } from './interface'
-import { Observable } from 'rxjs'
-import { ProfileUser, RoleName } from '../../main/shared/interface'
-import { tap } from 'rxjs/operators'
+import {Injectable} from '@angular/core'
+import {HttpClient} from '@angular/common/http'
+import {Users} from './interface'
+import {Observable} from 'rxjs'
+import {ProfileUser, RoleName} from '../../main/shared/interface'
+import {tap} from 'rxjs/operators'
 
 interface Role {
   roleID?: string
@@ -37,5 +37,9 @@ export class AdminService {
           }
         )
       )
+  }
+
+  deleteUser(id: string): Observable<ProfileUser> {
+    return this.http.delete<ProfileUser>(`/api/profile/${id}`)
   }
 }

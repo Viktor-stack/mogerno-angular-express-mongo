@@ -1308,6 +1308,7 @@
 }
 
 .aside__item {
+  position: relative;
   background-color: #fff;
   border: 1px solid #dedede;
   padding: 0px 32px 32px;
@@ -2602,7 +2603,7 @@ button.icon-sort-amount-desc {
   }
 
   .jq-selectbox.jqselect {
-    max-width: 540px;
+    max-width: 574px;
     height: 40px;
   }
 

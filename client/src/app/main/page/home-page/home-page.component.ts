@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {LoaderService} from "../../shared/services/loader.service";
 
 @Component({
   selector: 'app-home-page',
@@ -7,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
+  constructor(public load: LoaderService) {
+    this.load.showLoader()
+  }
 
   ngOnInit(): void {
-
+    this.load.hideLoader()
   }
 
 }

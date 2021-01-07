@@ -1,5 +1,20 @@
 <aside class="profile-details__aside">
   <div class="aside__item" id="mobile_fiksed">
+    <div *ngIf="isLoading" id="loader" class="load">
+      <div class="preloader-wrapper small active">
+        <div class="spinner-layer spinner-green-only">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div>
+          <div class="gap-patch">
+            <div class="circle"></div>
+          </div>
+          <div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="aside__title">
       Product Author
       <div style="color: red; font-size: 15px">{{profile?.roleID.roleName}}</div>
@@ -10,7 +25,7 @@
           <img src="/api/{{profile?.avatarName}}" alt="">
         </div>
         <div class="author__info">
-          <div class="author__user-name">{{profile?.userName}}</div>
+          <div class="author__user-name">{{profile?.firstName}}</div>
           <span
             *ngIf="profile?.token; else offline"
             class="author__link online__user">Online</span>

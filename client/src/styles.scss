@@ -43,3 +43,39 @@ button {
   background: #76ae36;
   color: #000
 }
+
+.select-wrapper .caret {
+  position: absolute;
+  right: -24px;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  z-index: 5;
+  fill: rgba(0, 0, 0, 0.87);
+}
+
+.select-wrapper input.select-dropdown:focus {
+  border-bottom: 1px solid #8bc34a;
+}
+
+.select-wrapper {
+  width: 540px;
+  margin-right: 34px
+}
+
+.select-wrapper input.select-dropdown {
+  position: relative;
+  cursor: pointer;
+  background-color: #f9f9f9;
+  outline: none;
+  height: 3rem;
+  line-height: 3rem;
+  font-size: 16px;
+  margin: 0;
+  min-width: 100%;
+  display: block;
+  user-select: none;
+  z-index: 1;
+  border: 1px solid #dedede;
+  padding: 0 16px;
+}

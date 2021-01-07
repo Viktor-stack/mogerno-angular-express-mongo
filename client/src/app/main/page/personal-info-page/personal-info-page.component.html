@@ -1,0 +1,138 @@
+<app-preloader *ngIf="load.loader.isLoading"></app-preloader>
+<app-searc-about></app-searc-about>
+<app-breadcrumbs [bred-title]="title"></app-breadcrumbs>
+
+<section class="contact">
+  <div class="container">
+    <div class="settings__wrapper">
+      <div class="settings__tabs">
+        <ul class="tabs tabs__list">
+          <li class="tab active" data-id="1">
+            <span>Personal Information</span>
+          </li>
+          <li class="tab" data-id="2">
+            <span>Profile</span>
+          </li>
+          <li class="tab " data-id="3">
+            <span>Badges</span>
+          </li>
+          <li class="tab" data-id="4">
+            <span>E-mail Settings</span>
+          </li>
+          <li class="tab " data-id="5">
+            <span>Social Network</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="personal__info-inner tab-item active-tab" id="1">
+        <div class="personal__Info-head">
+          Personal Information
+        </div>
+        <div class="settings__inner">
+          <div class="settings__form">
+            <form *ngIf="userDetails">
+              <div class="settings__line">
+                <label for="firstName">First Name</label>
+                <input
+                  id="firstName" type="text"
+                  [defaultValue]="userDetails.firstName"
+                  placeholder="Укажите Имя"
+                >
+              </div>
+              <div class="settings__line">
+                <label for="lastName">Last Name</label>
+                <input id="lastName" type="text"
+                       [defaultValue]="userDetails.lastName"
+                       placeholder="Укажите Фамилию"
+                >
+              </div>
+              <div class="settings__line">
+                <label for="companyName">Company Name</label>
+                <input
+                  id="companyName" type="text"
+                  [defaultValue]="userDetails.companyName"
+                  placeholder="Укажите название компании"
+                >
+              </div>
+              <div class="settings__line">
+                <label for="select">Country</label>
+                <select #select id="select"
+                        *ngIf="userDetails.countryID.countryName"
+                        [(ngModel)]="ngModel" #countryModel="ngModel"
+                        [ngModelOptions]="{standalone: true}">
+                  <option value="" disabled selected>{{userDetails.countryID.countryName}}</option>
+                  <option *ngFor="let cou of country" [value]="cou._id" value="{{cou._id}}">{{cou.countryName}}</option>
+                </select>
+              </div>
+              <div class="settings__line">
+                <label for="addressLine1">Address Line 1</label>
+                <input
+                  [defaultValue]="userDetails.addressLine1"
+                  id="addressLine1" type="text"
+                  placeholder="Укажите адрес №1"
+                >
+              </div>
+
+              <div class="settings__line">
+                <label for="addressLine2">Address Line 2</label>
+                <input
+                  [defaultValue]="userDetails.addressLine2"
+                  id="addressLine2" type="text"
+                  placeholder="Укажите адрес №2"
+                >
+              </div>
+              <div class="settings__line">
+                <label for="city">City</label>
+                <input
+                  [defaultValue]="userDetails.city"
+                  id="city" type="text"
+                  placeholder="Укажите город"
+                >
+              </div>
+              <div class="settings__line">
+                <label for="region">State / Province / Region</label>
+                <input
+                  [defaultValue]="userDetails.region"
+                  id="region" type="text"
+                  placeholder="Укажите регион"
+                >
+              </div>
+              <div class="settings__line">
+                <label for="postalCode">Zip / Postal Code</label>
+                <input
+                  [defaultValue]="userDetails.postalCode"
+                  id="postalCode" type="text"
+                  placeholder="Укажите почтовый индекс"
+                >
+              </div>
+              <button type="submit">Update</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="personal__info-inner tab-item" id="2">
+        <div class="personal__Info-head">
+          Profile
+        </div>
+      </div>
+      <div class="personal__info-inner tab-item" id="3">
+        <div class="personal__Info-head">
+          Badges
+        </div>
+      </div>
+      <div class="personal__info-inner tab-item" id="4">
+        <div class="personal__Info-head">
+          E-mail Settings
+        </div>
+      </div>
+      <div class="personal__info-inner tab-item" id="5">
+        <div class="personal__Info-head">
+          Social Network
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+

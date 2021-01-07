@@ -1,4 +1,4 @@
-<app-preloader></app-preloader>
+<app-preloader *ngIf="isLoading"></app-preloader>
 <app-searc-about></app-searc-about>
 <app-breadcrumbs [bred-title]="title"></app-breadcrumbs>
 <section class="upload">
@@ -14,7 +14,7 @@
             <input formControlName="email" type="email" placeholder="Email">
           </div>
           <div class="error-messages">
-            <ng-container *ngFor="let error of error_messages.password">
+            <ng-container *ngFor="let error of error_messages.email">
               <div class="error-message"
                    *ngIf="form.get('email').hasError(error.type) && (form.get('email').dirty || form.get('email').touched)">
                 {{ error.message }}
@@ -48,7 +48,9 @@
           <div class="error-messages">
             <ng-container *ngFor="let error of error_messages.password">
               <div class="error-message"
-                   *ngIf="form.get('confirmPassword').hasError(error?.type) && (form.get('confirmPassword').dirty || form.get('confirmPassword').touched)">
+                   *ngIf="
+                   form.get('confirmPassword').hasError(error?.type) &&
+                   (form.get('confirmPassword').dirty || form.get('confirmPassword').touched)">
                 {{ error.message }}
               </div>
             </ng-container>
@@ -63,7 +65,7 @@
             <input formControlName="userName" type="text" placeholder="Name">
           </div>
           <div class="error-messages">
-            <ng-container *ngFor="let error of error_messages.password">
+            <ng-container *ngFor="let error of error_messages.userName">
               <div class="error-message"
                    *ngIf="form.get('userName').hasError(error?.type) && (form.get('userName').dirty || form.get('userName').touched)">
                 {{ error.message }}
@@ -88,7 +90,7 @@
           <button
             class="btn"
             type="submit"
-            [disabled]="form.invalid"
+            [disabled]="form.invalid || image == null"
           >Submit
           </button>
           <!--          <pre>{{form.errors | json}}</pre>-->

@@ -32,5 +32,4 @@ export class MaterialService {
     return M.FormSelect.init(ref.nativeElement, options)
   }
 
-
 }

@@ -10,6 +10,7 @@ import {ProfilePageComponent} from './main/page/profile-page/profile-page.compon
 import {WithdrawalsPageComponent} from './main/page/withdrawals-page/withdrawals-page.component'
 import {AuthGuard} from './main/shared/services/auth.guard'
 import {RegisterPageComponent} from "./main/page/register-page/register-page.component";
+import {PersonalInfoPageComponent} from "./main/page/personal-info-page/personal-info-page.component";
 
 const routes: Routes = [
   {
@@ -19,7 +20,8 @@ const routes: Routes = [
       {path: 'register', component: RegisterPageComponent},
       {path: 'contact', component: ContactsPageComponent},
       {path: 'upload', component: UploadComponent, canActivate: [AuthGuard]},
-      {path: 'profile/:id', component: ProfilePageComponent},
+      {path: 'profile/:id', component: ProfilePageComponent, canActivate: [AuthGuard]},
+      {path: 'personal-info/:id', component: PersonalInfoPageComponent, canActivate: [AuthGuard]},
       {path: 'withdrawals', component: WithdrawalsPageComponent, canActivate: [AuthGuard]},
       {path: '404', component: NotFoundComponent}
     ]

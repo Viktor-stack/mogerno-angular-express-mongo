@@ -5,13 +5,27 @@ export interface User {
 
 export interface ProfileUser {
   _id?: string
-  userName?: string
+  firstName?: string
+  lastName?: string
   createDate?: number
+  companyName?: string
+  addressLine1?: string
+  addressLine2?: string
   avatarName?: string
+  city?: string
+  region?: string
+  postalCode?: number
   userPrice?: number
   email?: string
   token?: string
   roleID?: RoleName
+  countryID?: Country
+}
+
+
+export interface Country {
+  _id: string
+  countryName: string
 }
 
 export interface RoleName {
@@ -26,4 +40,14 @@ export interface RegisterUser {
   password: string
   avatarName?: string
   message: string
+}
+
+
+export interface Country {
+  _id: string
+  countryName: string
+}
+
+export interface ILoader {
+  isLoading: boolean
 }

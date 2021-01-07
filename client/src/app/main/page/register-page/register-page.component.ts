@@ -21,22 +21,23 @@ export class RegisterPageComponent implements OnInit {
 
   error_messages = {
     'userName': [
-      {type: 'required', message: 'Запольните это поле'},
-      {type: 'minlength', message: 'Пароль дожен быть не меньше 6 симвалов'}
+      {type: 'required', message: 'Заполните это поле'},
+      {type: 'minlength', message: 'Name долен быть не меньше 6 символов'}
     ],
     'email': [
-      {type: 'required', message: 'Запольните это поле'},
-      {type: 'minlength', message: 'Пароль дожен быть не меньше 6 симвалов'}
+      {type: 'required', message: 'Заполните это поле'},
+      {type: 'minlength', message: 'Email долен быть не меньше 6 символов'}
     ],
     'password': [
-      {type: 'required', message: 'Запольните это поле'},
-      {type: 'minlength', message: 'Пароль дожен быть не меньше 6 симвалов'},
+      {type: 'required', message: 'Заполните это поле'},
+      {type: 'minlength', message: 'Пароль долен быть не меньше 6 символов'},
     ],
     'confirmPassword': [
-      {type: 'required', message: 'Запольните это поле'},
-      {type: 'minlength', message: 'Пароль дожен быть не меньше 6 симвалов'},
+      {type: 'required', message: 'Заполните это поле'},
+      {type: 'minlength', message: 'Пароль долен быть не меньше 6 символов'},
     ]
   }
+  isLoading = true;
 
 
   constructor(private formBuilder: FormBuilder,
@@ -66,13 +67,15 @@ export class RegisterPageComponent implements OnInit {
     }, {
       validators: this.password.bind(this)
     });
-
+    setTimeout(() => {
+      this.isLoading = false
+    }, 2000)
   }
 
   password(formGroup: FormGroup) {
     const {value: password} = formGroup.get('password');
     const {value: confirmPassword} = formGroup.get('confirmPassword');
-    return password === confirmPassword ? null : {passwordNotMatch: true, message: 'Пароли не совдвдают'};
+    return password === confirmPassword ? null : {passwordNotMatch: true, message: 'Пароли не совпадает'};
   }
 
   trigger() {
@@ -91,14 +94,19 @@ export class RegisterPageComponent implements OnInit {
 
   ngSubmit() {
     let obs$
-    this.form.disable()
     obs$ = this.authService.register(this.form.value, this.image)
     obs$.subscribe((res) => {
-      this.userReg = res
-      MaterialService.totals(this.userReg.message)
-      this.form.reset()
-      this.route.navigate(['/'])
-    })
+        debugger
+        this.userReg = res
+        MaterialService.totals(this.userReg.message)
+        this.form.reset()
+        this.route.navigate(['/'])
+      }, (err) => {
+        this.imagePreview = null
+        this.form.reset({disabled: true})
+        MaterialService.totals(err.error.message)
+      }
+    )
   }
 
 

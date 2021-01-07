@@ -1,4 +1,4 @@
-<app-preloader></app-preloader>
+<app-preloader *ngIf="load.loader.isLoading"></app-preloader>
 <app-searc-about></app-searc-about>
 <app-breadcrumbs [bred-title]="title"></app-breadcrumbs>
 <div class="profile-details">

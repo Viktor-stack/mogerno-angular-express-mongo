@@ -5,15 +5,20 @@
         <img src="/api/{{profileUsers.avatarName}}" alt="">
       </div>
       <div class="user__box-items">
-        <div class="user__name">
-          {{profileUsers.userName}}
+        <div class="loader" *ngIf="isLoading">
+          <div class="progress" id="loader__user">
+            <div class="indeterminate"></div>
+          </div>
         </div>
-<!--        <div class="user__price" style="color: #ff0000; font-size: 12px; line-height: 1"-->
-<!--             *ngIf="profileUsers.roleID._id === '0d2a4b9e-38ab-4a32-b741-51fc68947035'">-->
-<!--          {{profileUsers.roleID.roleName}}-->
-<!--        </div>-->
+        <div class="user__name">
+          {{profileUsers.firstName}}
+        </div>
+        <!--        <div class="user__price" style="color: #ff0000; font-size: 12px; line-height: 1"-->
+        <!--             *ngIf="profileUsers.roleID._id === '0d2a4b9e-38ab-4a32-b741-51fc68947035'">-->
+        <!--          {{profileUsers.roleID.roleName}}-->
+        <!--        </div>-->
         <div class="user__price">
-          ${{profileUsers.userPrice}}
+          {{profileUsers.userPrice}} $
         </div>
       </div>
     </div>
@@ -23,7 +28,7 @@
     <ul class="user__list">
       <li><a [routerLink]="['/profile', profileUsers._id]">Profile Page</a></li>
       <li><a href="#">Portfolio</a></li>
-      <li><a href="#">Account Setting</a></li>
+      <li><a [routerLink]="['/personal-info',profileUsers._id]">Account Setting</a></li>
       <li><a href="#">Downloads</a></li>
       <li><a href="#">Wishlist</a></li>
       <li><a routerLink="/upload">Upload Item</a></li>

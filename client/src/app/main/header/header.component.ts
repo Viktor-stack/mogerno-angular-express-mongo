@@ -122,7 +122,6 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     this.form.reset()
     this.modal.close()
     this.modals.close()
-    debugger
     setTimeout(() => {
       this.auth.updateTokenLogin().subscribe()
     }, 1000)

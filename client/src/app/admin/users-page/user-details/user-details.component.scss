@@ -1,3 +1,39 @@
 button {
   margin-left: 15px;
 }
+
+.cort {
+  display: flex;
+ justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.box-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+img {
+  width: 150px;
+}
+
+.card-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-action {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  padding: 0 250px 0 150px;
+
+  .col.m9 {
+    width: 100%;
+  }
+}

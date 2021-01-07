@@ -1,24 +1,34 @@
 <app-preloader></app-preloader>
-<div class="row">
+<div class="row" *ngIf="user">
+  <h1>Пользователь</h1>
   <div class="col s9 m9">
     <div class="card blue-grey darken-1">
       <div class="card-content white-text">
-        <span class="card-title">{{user?.userName}}</span>
-        <p>{{user?.email}}</p>
-        <p><small>Текущая роль пользователя:</small> {{user?.roleID.roleName}}</p>
+        <div>
+          <span class="card-title">{{user.firstName}}</span>
+          <p>{{user.email}}</p>
+          <p><small>Текущая роль пользователя:</small> {{user.roleID.roleName}}</p>
+          <hr>
+        </div>
+        <img [src]="'api/' + user?.avatarName" alt="Avatar">
       </div>
       <div class="card-action white">
-        <h6>Изменить роль</h6>
         <form>
-          <div class="">
-            <select #select class=""
-                    [(ngModel)]="ngModel" #role="ngModel" [ngModelOptions]="{standalone: true}">
-              <option value="" disabled selected>Выберите роль пользователь</option>
-              <option *ngFor="let comp of RoleList" [value]="comp._id">
-                {{comp.roleName}}
-              </option>
-            </select>
-            <button class="btn" type="submit" (click)="submit()">Обновить</button>
+          <div class="cort">
+            <h6>Изменить роль</h6>
+            <label>
+              <select #select class=""
+                      [(ngModel)]="ngModel" #role="ngModel" [ngModelOptions]="{standalone: true}">
+                <option value="" disabled selected>Выберите роль пользователь</option>
+                <option *ngFor="let role of RoleList" [value]="role._id">
+                  {{role.roleName}}
+                </option>
+              </select>
+            </label>
+          </div>
+          <div class="box-btn">
+            <button class="btn" type="submit" (click)="deleteUser()">Удалить пользователя</button>
+            <button class="btn" type="submit" (click)="submit()" [disabled]="!ngModel">Обновить</button>
           </div>
         </form>
       </div>

@@ -42,7 +42,7 @@ export class AuthService {
     const fd = new FormData()
     if (image) {
       fd.append('avatarName', image, image.name)
-      fd.append('userName', user.userName)
+      fd.append('firstName', user.userName)
       fd.append('password', user.password)
       fd.append('email', user.email)
     }

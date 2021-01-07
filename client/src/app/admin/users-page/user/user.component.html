@@ -1,6 +1,7 @@
+<h3 style="margin-bottom: 0">Список Пользователей</h3>
 <ul #collapsibleRef class="collapsible popout" *ngIf="users$ | async as users">
   <li *ngFor="let user of users">
-    <div class="collapsible-header">{{user.userName}}</div>
+    <div class="collapsible-header">{{user.firstName}}</div>
     <div class="collapsible-body">
       <ul>
         <li>ID: {{user._id}}</li>

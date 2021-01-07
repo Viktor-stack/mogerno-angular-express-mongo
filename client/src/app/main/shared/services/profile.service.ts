@@ -18,7 +18,7 @@ export class ProfileService {
   }
 
   getProfile(id: string): Observable<ProfileUser> {
-    return this.http.get<ProfileUser>(`/api/profile/${id}`)
+    return  this.http.get<ProfileUser>(`/api/profile/${id}`)
       .pipe(
         tap(
           ({roleID}) => {
