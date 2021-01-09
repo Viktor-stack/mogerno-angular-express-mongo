@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core'
-import $ from 'jquery/dist/jquery.js'
 import {ProfileService} from '../../shared/services/profile.service'
 import {ActivatedRoute, Params} from '@angular/router'
 import {of} from 'rxjs'
 import {switchMap} from 'rxjs/operators'
 import {ProfileUser, RoleName} from '../../shared/interface'
 import {LoaderService} from "../../shared/services/loader.service";
+import $ from 'jquery/dist/jquery.js'
 
 @Component({
   selector: 'app-profile-page',
@@ -41,21 +41,24 @@ export class ProfilePageComponent implements OnInit {
       this.load.hideLoader()
     })
 
-    $('.profile-details__inner .tab').on('click', function (event) {
-      let id = $(this).attr('data-id')
-      $('.about__me-inner')
-        .find('.tab-item')
-        .removeClass('active-tab')
-        .hide()
-      $('.profile-details__inner .tabs')
-        .find('.tab')
-        .removeClass('active')
-      $(this).addClass('active')
-      $('#' + id)
-        .addClass('active-tab')
-        .fadeIn()
-      return false
-    })
+    setTimeout(() => {
+      $('.profile-details__tabs .tab').on('click', function (event) {
+        let id = $(this).attr('data-id')
+        $('.about__me-inner')
+          .find('.tab-item')
+          .removeClass('active-tab')
+          .hide()
+        $('.profile-details__inner .tabs')
+          .find('.tab')
+          .removeClass('active')
+        $(this).addClass('active')
+        $('#' + id)
+          .addClass('active-tab')
+          .fadeIn()
+        return false
+      })
+    }, 150)
+
     $('.reiteng-user').rateYo({
       rating: 5,
       starWidth: '12px',

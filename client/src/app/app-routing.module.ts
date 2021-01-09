@@ -11,14 +11,16 @@ import {WithdrawalsPageComponent} from './main/page/withdrawals-page/withdrawals
 import {AuthGuard} from './main/shared/services/auth.guard'
 import {RegisterPageComponent} from "./main/page/register-page/register-page.component";
 import {PersonalInfoPageComponent} from "./main/page/personal-info-page/personal-info-page.component";
+import {ProductPageComponent} from "./main/page/product-page/product-page.component";
 
-const routes: Routes = [
+const ROUTERS: Routes = [
   {
     path: '', component: MainLayoutComponent, children: [
       {path: '', component: HomePageComponent},
       {path: 'about', component: AboutComponent},
       {path: 'register', component: RegisterPageComponent},
       {path: 'contact', component: ContactsPageComponent},
+      {path: 'product', component: ProductPageComponent},
       {path: 'upload', component: UploadComponent, canActivate: [AuthGuard]},
       {path: 'profile/:id', component: ProfilePageComponent, canActivate: [AuthGuard]},
       {path: 'personal-info/:id', component: PersonalInfoPageComponent, canActivate: [AuthGuard]},
@@ -33,8 +35,9 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {
-    preloadingStrategy: PreloadAllModules
+  imports: [RouterModule.forRoot(ROUTERS, {
+    preloadingStrategy: PreloadAllModules,
+    onSameUrlNavigation: 'reload'
   })],
   exports: [RouterModule]
 })

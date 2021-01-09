@@ -33,7 +33,7 @@ export class AsideComponent implements OnInit, OnDestroy {
           switchMap(
             (params: Params) => {
               if (params['id']) {
-                return this.profileService.getProfile(params['id'])
+                return this.profileService.getCheckToken(params['id'])
               }
               return of(null)
             }

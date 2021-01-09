@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs'
-import { ProfileUser } from '../interface'
+import {ProfileUser, Token} from '../interface'
 import { tap } from 'rxjs/operators'
 
 @Injectable({
@@ -13,8 +13,8 @@ export class ProfileService {
   constructor(private http: HttpClient) {
   }
 
-  getTokenUser(id: string): Observable<ProfileUser> {
-    return this.http.get<ProfileUser>(`/api/profile/${id}`)
+  getCheckToken(id: string): Observable<Token> {
+    return this.http.get<Token>(`/api/profile/${id}/token`)
   }
 
   getProfile(id: string): Observable<ProfileUser> {

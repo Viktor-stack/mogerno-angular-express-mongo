@@ -10,12 +10,18 @@ img {
   align-items: center;
   justify-content: center;
   padding: 0 30px;
+  transition: all .3s;
   left: 0;
   top: 0;
   transform: translate(0%, -26%);
-  width: 155px;
+  width: 140px;
   height: 92px;
   z-index: 5;
+
+  &.done {
+    opacity: 0;
+    visibility: hidden;
+  }
 
   .progress {
     background-color: rgba(139, 195, 74, 0.42);
@@ -25,9 +31,5 @@ img {
     }
   }
 
-  &.bone {
-    opacity: 0;
-    visibility: hidden;
-  }
 }
 

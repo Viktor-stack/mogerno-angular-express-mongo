@@ -13,7 +13,6 @@ export class MainLayoutComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.load.hideLoader()
   }
 
 }

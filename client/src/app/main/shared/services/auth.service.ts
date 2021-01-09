@@ -21,12 +21,10 @@ export class AuthService {
 
 
   login(user: User): Observable<{ token: string, roleID: RoleName, userID: string, userName: string }> {
-    debugger
     return this.http.post<{ token: string, roleID: RoleName, userID: string, userName: string }>('/api/auth/login', user)
       .pipe(
         tap(
           ({token, roleID, userID}) => {
-            debugger
             localStorage.setItem('auth-token', token)
             localStorage.setItem('roleID', roleID._id)
             localStorage.setItem('userID', userID)
@@ -46,7 +44,6 @@ export class AuthService {
       fd.append('password', user.password)
       fd.append('email', user.email)
     }
-    debugger
     return this.http.post('/api/auth/register', fd)
   }
 

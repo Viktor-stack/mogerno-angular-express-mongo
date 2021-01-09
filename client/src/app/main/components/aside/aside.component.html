@@ -1,4 +1,4 @@
-<aside class="profile-details__aside">
+<aside class="profile-details__aside" *ngIf="profile">
   <div class="aside__item" id="mobile_fiksed">
     <div *ngIf="isLoading" id="loader" class="load">
       <div class="preloader-wrapper small active">
@@ -17,17 +17,17 @@
     </div>
     <div class="aside__title">
       Product Author
-      <div style="color: red; font-size: 15px">{{profile?.roleID.roleName}}</div>
+      <div style="color: red; font-size: 15px">{{profile.roleID?.roleName}}</div>
     </div>
     <div class="author__inner">
       <a href="#" class="author__inner-box">
         <div class="author__avatar">
-          <img src="/api/{{profile?.avatarName}}" alt="">
+          <img src="/api/{{profile.avatarName}}" alt="">
         </div>
         <div class="author__info">
-          <div class="author__user-name">{{profile?.firstName}}</div>
+          <div class="author__user-name">{{profile.firstName}}</div>
           <span
-            *ngIf="profile?.token; else offline"
+            *ngIf="profile.token; else offline"
             class="author__link online__user">Online</span>
           <ng-template #offline>
             <span class="author__link offline__user">Offline</span>
@@ -64,7 +64,7 @@
   <div class="aside__item profile__deteils-btn">
     <a class="link-message" href="#">Send Message</a>
     <a class="link-foll" href="#">Following</a>
-    <a *ngIf="profile?.roleID._id === '0d2a4b9e-38ab-4a32-b741-51fc68947035'" class="link-foll" style="background: red"
+    <a *ngIf="profile.roleID._id === '0d2a4b9e-38ab-4a32-b741-51fc68947035'" class="link-foll" style="background: red"
        routerLink="/admin">Admin Dashboard</a>
   </div>
 
@@ -72,27 +72,27 @@
     <ul class="tabs tabs__list">
       <li class="tab active" data-id="1">
         <div id="menu">
-          <a href="#tabs"><span class="user">About Me</span></a>
+          <span class="user">About Me</span>
         </div>
       </li>
       <li class="tab" data-id="2">
         <div id="menu2">
-          <a href="#tabs"><span class="suitcase">Products (10)</span></a>
+         <span class="suitcase">Products (10)</span>
         </div>
       </li>
       <li class="tab " data-id="3">
         <div id="menu3">
-          <a href="#tabs"><span class="envelope-o">Message Box</span></a>
+          <span class="envelope-o">Message Box</span>
         </div>
       </li>
       <li class="tab" data-id="4">
         <div id="menu4">
-          <a href="#tabs"><span class="comments-o">Customer Reviews (20)</span></a>
+         <span class="comments-o">Customer Reviews (20)</span>
         </div>
       </li>
       <li class="tab " data-id="5">
         <div id="menu5">
-          <a href="#tabs"><span class="group">Followers(100)</span></a>
+          <span class="group">Followers(100)</span>
         </div>
       </li>
 

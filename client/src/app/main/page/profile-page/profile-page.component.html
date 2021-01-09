@@ -13,21 +13,21 @@
           <div class="banner__here" style="background-image: url({{url}})"></div>
         </div>
         <div class="deteils__info">
-          <div class="info__items">
+          <div class="info__items" *ngIf="profile">
             <div class="info__items-title">Country:</div>
-            <span>England</span>
+            <span>{{profile.countryID.countryName}}</span>
           </div>
-          <div class="info__items fics--border">
+          <div class="info__items fics--border" *ngIf="profile">
             <div class="info__items-title">Member Since:</div>
-            <span>December 26, 2014</span>
+            <span>{{profile.createDate | date}}</span>
           </div>
           <div class="info__items">
             <div class="info__items-title">Author Rating:</div>
             <span class="reiteng-user"></span><span>(05)</span>
           </div>
-          <div class="info__items" id="tabs" name="tabs">
+          <div class="info__items" id="tabs" name="tabs" *ngIf="profile">
             <div class="info__items-title">Total Sales:</div>
-            <span>$ 5,030</span>
+            <span>$ {{profile.userPrice}}</span>
           </div>
         </div>
         <div class="about__me-inner">

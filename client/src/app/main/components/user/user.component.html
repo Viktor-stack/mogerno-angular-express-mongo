@@ -5,18 +5,14 @@
         <img src="/api/{{profileUsers.avatarName}}" alt="">
       </div>
       <div class="user__box-items">
-        <div class="loader" *ngIf="isLoading">
-          <div class="progress" id="loader__user">
+        <div class="loader" *ngIf="isLoading" id="loader__user">
+          <div class="progress">
             <div class="indeterminate"></div>
           </div>
         </div>
         <div class="user__name">
           {{profileUsers.firstName}}
         </div>
-        <!--        <div class="user__price" style="color: #ff0000; font-size: 12px; line-height: 1"-->
-        <!--             *ngIf="profileUsers.roleID._id === '0d2a4b9e-38ab-4a32-b741-51fc68947035'">-->
-        <!--          {{profileUsers.roleID.roleName}}-->
-        <!--        </div>-->
         <div class="user__price">
           {{profileUsers.userPrice}} $
         </div>

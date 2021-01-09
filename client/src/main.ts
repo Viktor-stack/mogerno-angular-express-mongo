@@ -8,6 +8,7 @@ import 'materialize-css/dist/js/materialize.js'
 import 'jquery-form-styler/dist/jquery.formstyler.min.js'
 import '@rateyo/jquery/lib/es/jquery.rateyo.js'
 import 'slick-carousel/slick/slick.js'
+import 'node_modules/ion-rangeslider/js/ion.rangeSlider.js'
 import 'jquery/dist/jquery.js'
 
 if (environment.production) {

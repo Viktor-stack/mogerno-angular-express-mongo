@@ -1,14 +1,14 @@
 import {Component, OnInit} from '@angular/core'
 import {AuthService} from '../../shared/services/auth.service'
 import {ProfileService} from '../../shared/services/profile.service'
-import {Observable, Subscription} from 'rxjs'
+import {Observable} from 'rxjs'
 import {ProfileUser} from '../../shared/interface'
-import {ActivatedRoute, Params} from '@angular/router'
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss']
+  styleUrls: ['./user.component.scss'],
+
 })
 export class UserComponent implements OnInit {
   userProfile$: Observable<ProfileUser>
@@ -34,7 +34,7 @@ export class UserComponent implements OnInit {
           }
           setTimeout(() => {
             this.isLoading = false
-          }, 1000);
+          }, 1500);
         }, 500)
       }
     }, 2000)

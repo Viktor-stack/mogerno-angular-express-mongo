@@ -22,6 +22,9 @@ export interface ProfileUser {
   countryID?: Country
 }
 
+export interface Token {
+  token: string
+}
 
 export interface Country {
   _id: string

@@ -4,6 +4,7 @@ import {AuthService} from "../../shared/services/auth.service";
 import {RegisterUser} from "../../shared/interface";
 import {MaterialService} from "../../shared/classes/material.service";
 import {Router} from "@angular/router";
+import {LoaderService} from "../../shared/services/loader.service";
 
 @Component({
   selector: 'app-register-page',
@@ -37,12 +38,13 @@ export class RegisterPageComponent implements OnInit {
       {type: 'minlength', message: 'Пароль долен быть не меньше 6 символов'},
     ]
   }
-  isLoading = true;
 
 
   constructor(private formBuilder: FormBuilder,
               private authService: AuthService,
-              private route: Router) {
+              private route: Router,
+              public load: LoaderService) {
+    this.load.showLoader()
   }
 
   ngOnInit(): void {
@@ -67,9 +69,7 @@ export class RegisterPageComponent implements OnInit {
     }, {
       validators: this.password.bind(this)
     });
-    setTimeout(() => {
-      this.isLoading = false
-    }, 2000)
+    this.load.hideLoader()
   }
 
   password(formGroup: FormGroup) {
@@ -108,6 +108,4 @@ export class RegisterPageComponent implements OnInit {
       }
     )
   }
-
-
 }

@@ -1,10 +1,10 @@
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core'
 import {MaterialInstance, MaterialService} from '../shared/classes/material.service'
-import $ from 'jquery/dist/jquery.js'
 import {FormControl, FormGroup, Validators} from '@angular/forms'
 import {AuthService} from '../shared/services/auth.service'
 import {ActivatedRoute, Params, Router} from '@angular/router'
 import {ProfileUser} from '../shared/interface'
+import $ from 'jquery/dist/jquery.js'
 
 @Component({
   selector: 'app-header',
@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   submitted = false
   message: string
   user: ProfileUser
-
+  render: boolean;
 
   constructor(public auth: AuthService,
               private router: Router,
@@ -46,6 +46,9 @@ export class HeaderComponent implements OnInit, AfterViewInit {
       if (params['loginAgain']) {
         MaterialService.totals('Для начала авторизуйтесь в системе')
       } else if (params['sessionFailed']) {
+        this.render = true
+        this.router.navigate(['/'])
+        this.auth.updateTokenLogout().subscribe()
         this.modals.open()
       }
     })
@@ -106,6 +109,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     this.form.reset()
   }
 
+
   submit() {
     if (this.form.invalid) {
       return
@@ -124,6 +128,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     this.modals.close()
     setTimeout(() => {
       this.auth.updateTokenLogin().subscribe()
+      this.render = false
     }, 1000)
   }
 

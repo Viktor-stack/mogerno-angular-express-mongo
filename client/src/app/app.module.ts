@@ -33,7 +33,9 @@ import { AuthService } from './main/shared/services/auth.service'
 import { CommonModule } from '@angular/common'
 import { AsideComponent } from './main/components/aside/aside.component';
 import { RegisterPageComponent } from './main/page/register-page/register-page.component';
-import { PersonalInfoPageComponent } from './main/page/personal-info-page/personal-info-page.component'
+import { PersonalInfoPageComponent } from './main/page/personal-info-page/personal-info-page.component';
+import { ProductPageComponent } from './main/page/product-page/product-page.component';
+import { ProdictComponent } from './main/page/product-page/component/prodict/prodict.component'
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -70,7 +72,9 @@ const INTERCEPTOR_PROVIDER: Provider = {
     WithdrawalsPageComponent,
     AsideComponent,
     RegisterPageComponent,
-    PersonalInfoPageComponent
+    PersonalInfoPageComponent,
+    ProductPageComponent,
+    ProdictComponent
   ],
   imports: [
     CommonModule,

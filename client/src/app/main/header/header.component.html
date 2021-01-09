@@ -24,7 +24,7 @@
         </div>
         <div class="header__box">
           <div class="header__circle-box">
-            <div class="notification__box" *ngIf="auth.isAuthenticated()">
+            <div class="notification__box" *ngIf="auth.isAuthenticated() && !render">
               <a class="notification header__circle active icon-bell-o" href="#"> <span>8</span></a>
               <div class="circle__menu notification__menu">
                 <a href="#" class="circle__item icon-bell-o icons__color">
@@ -50,7 +50,7 @@
                 </a>
               </div>
             </div>
-            <div class="message__box" *ngIf="auth.isAuthenticated()">
+            <div class="message__box" *ngIf="auth.isAuthenticated() && !render">
               <a class="message header__circle active icon-envelope-o" href="#"><span>5</span></a>
               <div class="circle__menu message__menu">
                 <a href="#" class="circle__item icon-envelope-o icons__color">
@@ -109,7 +109,9 @@
               </div>
             </div>
           </div>
-          <app-user *ngIf="auth.isAuthenticated()"></app-user>
+          <ng-container *ngIf="!render">
+            <app-user *ngIf="auth.isAuthenticated()"></app-user>
+          </ng-container>
           <a *ngIf="!auth.isAuthenticated()" class="header__btn header__btn-Login" (click)="openModal()">Login</a>
           <a
             *ngIf="!auth.isAuthenticated()"
@@ -183,7 +185,7 @@
 
 <div #modals id="modals" class="modal">
   <div class="login__wrapper">
-    <h6 style="text-align: center">Сессия закончилась войдите заново</h6>
+    <h6 style="text-align: center; color: red">Сессия закончилась войдите заново</h6>
     <a class="header__btn header__btn-Login" (click)="openModal()">Login</a>
     <a class="creat-acc" href="#" (click)="logout($event)">Вернуться на главную</a>
   </div>

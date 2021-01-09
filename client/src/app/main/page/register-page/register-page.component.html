@@ -1,4 +1,4 @@
-<app-preloader *ngIf="isLoading"></app-preloader>
+<app-preloader *ngIf="load.loader.isLoading"></app-preloader>
 <app-searc-about></app-searc-about>
 <app-breadcrumbs [bred-title]="title"></app-breadcrumbs>
 <section class="upload">
@@ -26,7 +26,7 @@
             <input
               formControlName="password"
               type="password"
-              placeholder="Password"
+              placeholder="password"
             >
           </div>
           <div class="error-messages">
@@ -42,7 +42,7 @@
             <input
               formControlName="confirmPassword"
               type="password"
-              placeholder="Password confirm"
+              placeholder="password confirm"
             >
           </div>
           <div class="error-messages">

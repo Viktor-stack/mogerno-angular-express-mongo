@@ -4,7 +4,6 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
-import $ from 'jquery/dist/jquery.js'
 import {NgModel} from "@angular/forms";
 import {PersonalInfoService} from "../../shared/services/personal-info.service";
 import {Country, ProfileUser} from "../../shared/interface";
@@ -14,6 +13,7 @@ import {of} from "rxjs";
 import {ActivatedRoute, Params} from "@angular/router";
 import {switchMap} from "rxjs/operators";
 import {LoaderService} from "../../shared/services/loader.service";
+import $ from 'jquery/dist/jquery.js'
 
 @Component({
   selector: 'app-personal-info-page',
@@ -32,10 +32,10 @@ export class PersonalInfoPageComponent implements OnInit {
               private profileService: ProfileService,
               private route: ActivatedRoute,
               public load: LoaderService) {
+    this.load.showLoader()
   }
 
   ngOnInit(): void {
-    this.load.showLoader()
     $(".settings__wrapper .tab").on("click", function (event) {
       const id = $(this).attr("data-id");
       $(".settings__wrapper")
